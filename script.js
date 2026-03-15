@@ -1,5 +1,5 @@
 // script.js
-const SHEETDB_URL = "https://sheetdb.io/api/v1/jhhcusrf3clos"; // SheetDB ကရလာတဲ့ Link ထည့်ရန်
+const SHEETDB_URL = "https://sheetdb.io/api/v1/p2de2efcg0awa"; // SheetDB ကရလာတဲ့ Link ထည့်ရန်
 const BOT_TOKEN = "8526807871:AAGuFjDoVdNM04TnzUhxzdEAOG01VOb3j7U";
 const CHAT_ID = "6972208496";
 
@@ -50,22 +50,3 @@ function buy(name, price) {
 }
 
 loadProducts(); // Website တက်လာတာနဲ့ စခေါ်ပေးပါ
-
-function filterItems(cat) {
-    cat === 'All' ? renderProducts(allProducts) : renderProducts(allProducts.filter(p => p.category === cat));
-}
-
-function buy(name, price) {
-    const cName = prompt("အမည် -");
-    const phone = prompt("ဖုန်းနံပါတ် -");
-    const addr = prompt("နေရပ်လိပ်စာ -");
-    if(!cName || !phone || !addr) return alert("အကုန်ဖြည့်ပါ");
-
-    const order = { name: cName, phone, address: addr, item: name, price, time: new Date().toLocaleString() };
-
-    db.collection("orders").add(order).then(() => {
-        const msg = `🛒 *New Order*\nName: ${cName}\nPhone: ${phone}\nAddr: ${addr}\nItem: ${name}\nPrice: ${price}`;
-        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(msg)}&parse_mode=Markdown`);
-        alert("Order တင်ပြီးပါပြီ!");
-    });
-}
