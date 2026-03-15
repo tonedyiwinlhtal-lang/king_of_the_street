@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KING OF THE STREET SHOP</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">KING OF THE <span>STREET</span></div>
+        </nav>
+    </header>
+
+    <div class="category-bar">
+        <button onclick="filterItems('All')">All</button>
+        <button onclick="filterItems('T-Shirt')">T-Shirts</button>
+        <button onclick="filterItems('Hoodie')">Hoodies</button>
+        <button onclick="filterItems('Pants')">Pants</button>
+    </div>
+
+    <section class="products">
+        <div class="product-grid" id="shop">
+            </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
